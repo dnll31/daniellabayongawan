@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniella Bayongawan – General Virtual Assistant</title>
+<meta name="description" content="Daniella Bayongawan is a general virtual assistant who keeps your tasks organized and your day running smoothly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f7fb;--paper:#fff;--ink:#0d1526;--muted:#4a5568;--teal:#0f7a6b;--teal-soft:#e0f1ee;--navy:#12213b;--mint:#5ce8d4;--line:#d9dfe9;
+--display:'Bricolage Grotesque','Segoe UI',Arial,sans-serif;--body:'Figtree','Segoe UI',Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.65;font-size:1.0625rem;-webkit-font-smoothing:antialiased}
+a{color:var(--teal)}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+h1,h2,h3{font-family:var(--display);line-height:1.08;letter-spacing:-.02em}
+h1{font-size:clamp(2.6rem,5.6vw,4.6rem);font-weight:800}
+h2{font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:700;letter-spacing:-.01em}
+.kicker{display:block;color:var(--teal);font-weight:600;margin-bottom:12px}
+.lede{color:var(--muted);margin-top:16px}
+.btn{display:inline-block;padding:14px 28px;border-radius:999px;font-weight:600;text-decoration:none;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-solid{background:var(--teal);color:#fff}.btn-solid:hover{background:#0b6458}
+.btn-line{border:1.5px solid var(--ink);color:var(--ink)}.btn-line:hover{background:var(--ink);color:#fff}
+.ph{background:repeating-linear-gradient(135deg,#e6ebf3 0 14px,#edf1f7 14px 28px);position:relative;overflow:hidden}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* two-column layout: sticky heading + content */
+.split{display:grid;grid-template-columns:minmax(220px,320px) 1fr;gap:72px}
+.head{position:sticky;top:48px;align-self:start}
+
+/* Hero */
+.hero{padding:64px 0 88px}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:end}
+.name{font-family:var(--display);font-weight:700;margin-bottom:40px;display:flex;align-items:center;gap:12px}
+.name::before{content:"";width:44px;height:4px;background:var(--teal);border-radius:2px}
+.hero h1{max-width:13ch}
+.hero .sub{font-size:1.25rem;color:var(--muted);margin:24px 0 32px;max-width:34ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px}
+.links{display:flex;flex-wrap:wrap;gap:8px 24px;padding-top:20px;border-top:1px solid var(--line);font-weight:500}
+.stage{background:var(--teal);border-radius:40px;padding:14px 14px 0;align-self:stretch;display:flex;align-items:flex-end}
+.photo{aspect-ratio:4/5;width:100%;border-radius:999px 999px 0 0}
+
+/* About */
+.about{background:var(--paper)}
+.about p{max-width:62ch;margin-bottom:20px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.fact{background:var(--teal-soft);border-radius:20px;padding:24px}
+.fact b{display:block;color:var(--teal);font-family:var(--display);margin-bottom:6px;font-size:1.1rem}
+.fact span{display:block;margin-top:10px;color:var(--muted);font-size:.97rem}
+
+/* Services bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.card{background:var(--paper);border-radius:24px;padding:32px;display:flex;flex-direction:column;justify-content:flex-end;min-height:190px}
+.card p{margin-top:8px;color:var(--muted)}
+.card.a{grid-column:span 3;background:var(--teal);color:#fff;min-height:260px}
+.card.b{grid-column:span 3;background:var(--teal-soft);min-height:260px}
+.card.c,.card.d,.card.e{grid-column:span 2}
+.card.e{background:var(--navy);color:#fff}
+.card.a p,.card.e p{color:#d3efe9}
+.card h3{font-size:1.4rem}
+
+/* Tools */
+.tools{background:var(--paper)}
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tool{background:var(--bg);border-radius:22px;padding:28px}
+.tool.wide{grid-column:span 2}
+.tool h3{color:var(--teal)}
+.tool p{color:var(--muted);font-size:.97rem;margin:6px 0 18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:var(--paper);border:1px solid var(--line);padding:6px 14px;border-radius:999px;font-weight:500;font-size:.93rem}
+
+/* Strengths */
+.str{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 32px}
+.str div{border-left:4px solid var(--teal);padding-left:20px}
+.str div:nth-child(even){border-color:var(--mint)}
+.str p{color:var(--muted);margin-top:6px}
+
+/* Workflow */
+.workflow{background:var(--navy);color:#fff}
+.workflow .kicker{color:var(--mint)}.workflow .lede{color:#c6d0e0;max-width:60ch}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:56px}
+.step{padding:28px 34px 32px 22px;color:var(--navy);clip-path:polygon(0 0,86% 0,100% 50%,86% 100%,0 100%);min-height:250px}
+.step:nth-child(1){background:#def3f0}.step:nth-child(2){background:#c4ece6}.step:nth-child(3){background:#a6e6dd}.step:nth-child(4){background:#85e7da}.step:nth-child(5){background:var(--mint)}
+.step small{font-weight:600;opacity:.65}
+.step h3{margin:6px 0 10px;font-size:1.1rem}
+.step p{font-size:.95rem;line-height:1.5}
+.goal{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center;background:#def3f0;color:var(--navy);border-radius:28px;padding:32px 40px;margin-top:48px}
+.goal h3{font-size:2rem}
+.goal p{border-left:3px solid var(--navy);border-right:3px solid var(--navy);padding:0 32px}
+.goal strong{font-family:var(--display);font-size:1.3rem;line-height:1.2}
+
+/* Samples */
+.mosaic{display:grid;grid-template-columns:repeat(6,1fr);gap:40px 24px;margin-top:48px}
+.sample:nth-child(1){grid-column:span 4}.sample:nth-child(2){grid-column:span 2}
+.sample:nth-child(3){grid-column:span 2}.sample:nth-child(4){grid-column:span 4}
+.sample:nth-child(5),.sample:nth-child(6){grid-column:span 3}
+.sample .ph{aspect-ratio:16/10;border-radius:22px;border:1px solid var(--line)}
+.sample:nth-child(2) .ph,.sample:nth-child(3) .ph{aspect-ratio:4/3.4}
+.sample h3{margin-top:14px}
+.sample p{color:var(--muted);margin-top:4px;font-size:.98rem;max-width:52ch}
+
+/* Ready tabs */
+.ready{background:var(--paper)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 28px}
+.tabs button{font:inherit;font-weight:600;padding:10px 22px;border-radius:999px;border:1.5px solid var(--ink);background:none;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:#fff}
+.panel[hidden]{display:none}
+.panel p{max-width:56ch;color:var(--muted)}
+.panel ul{list-style:none;columns:2;column-gap:40px;margin-top:20px}
+.panel li{padding:10px 0 10px 28px;position:relative;break-inside:avoid;border-bottom:1px solid var(--line)}
+.panel li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:700}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:start}
+details{border-bottom:1px solid var(--line);padding:20px 0}
+details:first-of-type{margin-top:36px;border-top:1px solid var(--line)}
+summary{font-family:var(--display);font-weight:700;font-size:1.15rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--teal);font-size:1.5rem;line-height:1;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:12px;color:var(--muted);max-width:60ch}
+.connect{background:var(--navy);color:#fff;border-radius:28px;padding:36px;position:sticky;top:24px}
+.connect h3{font-size:2rem;margin-bottom:20px}
+.connect small{display:block;color:var(--mint);font-weight:600;margin-top:18px}
+.connect a{color:var(--mint);word-break:break-all}
+.connect .phone{font-size:1.25rem;font-weight:600;color:var(--mint)}
+
+/* Closing */
+.closing{background:var(--navy);color:#fff;text-align:center}
+.closing h2{color:var(--mint);font-size:clamp(3rem,8vw,5.5rem)}
+.closing h3{font-size:clamp(1.8rem,4vw,2.8rem);margin-top:8px}
+.closing .msg{max-width:60ch;margin:28px auto 0;color:#d5dded}
+.closing-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 32px;margin-top:40px}
+.closing-links a{color:var(--mint);font-weight:600}
+.closing .phone{margin-top:24px;color:var(--mint);font-weight:600}
+
+@media (max-width:960px){
+  section{padding:72px 0}
+  .split,.faq-grid,.hero .wrap{grid-template-columns:1fr;gap:36px}
+  .head{position:static}
+  .stage{max-width:420px;padding:32px 32px 0}
+  .facts,.str{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr 1fr}
+  .card.a,.card.b{grid-column:span 2}.card.c,.card.d,.card.e{grid-column:span 1}
+  .tool-grid{grid-template-columns:1fr}.tool.wide{grid-column:auto}
+  .steps{grid-template-columns:1fr;gap:10px}
+  .step{clip-path:none;border-radius:16px;min-height:0;padding:22px}
+  .goal{grid-template-columns:1fr}.goal p{border:0;padding:0}
+  .mosaic{grid-template-columns:1fr}.mosaic .sample{grid-column:auto!important}
+  .sample .ph{aspect-ratio:16/10!important}
+  .panel ul{columns:1}
+  .connect{position:static}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,summary::after{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="name">Daniella Bayongawan</div>
+      <h1>Hello, I’m Daniella, your general virtual assistant.</h1>
+      <p class="sub">Keeping your tasks organized and your day running smoothly.</p>
+      <div class="cta">
+        <a class="btn btn-solid" href="#contact">Hire me</a>
+        <a class="btn btn-line" href="#samples">View sample works</a>
+      </div>
+      <div class="links">
+        <a href="mailto:daniella.bayongawan31@gmail.com">daniella.bayongawan31@gmail.com</a>
+        <a href="https://www.linkedin.com/in/daniella-b-18202423a/">LinkedIn</a><a href="https://www.facebook.com/done.niella/">Facebook</a><a href="https://www.onlinejobs.ph/jobseekers/info/1859686">OnlineJobs.ph</a>
+      </div>
+    </div>
+    <div class="stage">
+      <!-- To add your photo: put it in an "images" folder, then replace the empty div with
+           <div class="photo ph"><img src="images/photo.jpg" alt="Daniella Bayongawan"></div> -->
+      <div class="photo ph" role="img" aria-label="Photo of Daniella"><img src="photos/7.jfif" alt="Daniella Bayongawan"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="about">
+  <div class="wrap split">
+    <div class="head"><span class="kicker">About me</span><h2>IT-trained, VA-ready, detail-obsessed.</h2></div>
+    <div>
+      <p>I’m a BS Information Technology graduate with a background in web technologies and hands-on experience from my Front-End Developer internship. Through my General Virtual Assistant training, I developed skills in email management, data entry, calendar management, task and project management, and Google Drive management. I enjoy using digital tools to keep information organized and help daily tasks run smoothly.</p>
+      <p>I’m organized, adaptable, and detail-oriented. I communicate clearly, prioritize tasks, and strive to complete every responsibility accurately and on time.</p>
+      <div class="facts">
+        <div class="fact"><b>Background</b>BS Information Technology graduate</div>
+        <div class="fact"><b>VA training</b>ZERO TO HERO Virtual Assistant, Gerr’s Virtual Academy, 2026</div>
+        <div class="fact"><b>Experience</b>Front-End Developer Intern, Intelliseven Inc.<span>Personal practice projects in email organization, Gmail label automation, and Canva email newsletter design.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div class="head"><span class="kicker">My services</span><h2>How I can support you</h2><p class="lede">Reliable help with everyday tasks to keep your work moving.</p></div>
+    <div class="bento">
+      <div class="card a"><h3>Administrative support</h3><p>Documents, research, reports, and day-to-day task handling.</p></div>
+      <div class="card b"><h3>Email &amp; calendar</h3><p>Inbox organization, scheduling, reminders, and follow-ups.</p></div>
+      <div class="card c"><h3>Data entry</h3><p>Accurate, clean entry into spreadsheets and databases.</p></div>
+      <div class="card d"><h3>File management</h3><p>Clear folder structures, naming systems, and backups.</p></div>
+      <div class="card e"><h3>Creative support</h3><p>Canva graphics, simple video edits, and presentation polish.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="tools">
+  <div class="wrap split">
+    <div class="head"><span class="kicker">Tools I use</span><h2>Comfortable with the tools you already use</h2><p class="lede">I use tried and tested tools to stay organized, communicate effectively, and deliver high-quality support.</p></div>
+    <div class="tool-grid">
+      <div class="tool wide"><h3>Productivity &amp; document management</h3><p>For creating documents, managing files, and organizing schedules.</p><div class="chips"><span>GDrive</span><span>GSheet</span><span>Word</span><span>GCalendar</span><span>GDocs</span><span>PowerPoint</span></div></div>
+      <div class="tool"><h3>Communication &amp; meetings</h3><p>For email correspondence, virtual meetings, and collaboration.</p><div class="chips"><span>Zoom</span><span>GMeet</span><span>Gmail</span></div></div>
+      <div class="tool"><h3>Graphic design &amp; photo editing</h3><p>For creating visual content and editing photos.</p><div class="chips"><span>Canva</span><span>Figma</span></div></div>
+      <div class="tool"><h3>Task &amp; project management</h3><p>For organizing tasks, tracking progress, and managing projects.</p><div class="chips"><span>Asana</span><span>Notion</span></div></div>
+      <div class="tool"><h3>Video editing</h3><p>For editing videos and creating short-form content.</p><div class="chips"><span>CapCut</span></div></div>
+      <div class="tool wide"><h3>AI tools &amp; productivity</h3><p>AI-powered tools for research assistance, content drafting, brainstorming, and organizing information to support efficient administrative tasks.</p><div class="chips"><span>ChatGPT</span><span>Gemini</span><span>Claude</span></div></div>
+      <div class="tool wide"><h3>Development &amp; technical tools</h3><p>Used for code editing, reviewing website files, and basic web development tasks.</p><div class="chips"><span>Visual Studio Code (VS Code)</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div class="head"><span class="kicker">What I bring to the table</span><h2>Strengths you can count on</h2></div>
+    <div class="str">
+      <div><h3>Attention to detail</h3><p>I double-check names, dates, and numbers before anything goes out.</p></div>
+      <div><h3>Organization</h3><p>Tidy systems so nothing slips through the cracks.</p></div>
+      <div><h3>Adaptability</h3><p>Comfortable switching tasks, tools, and priorities.</p></div>
+      <div><h3>Willingness to learn</h3><p>Quick to pick up new platforms and your preferred way of working.</p></div>
+      <div><h3>IT knowledge</h3><p>Troubleshooting, file handling, and tech confidence from my IT background.</p></div>
+      <div><h3>Time management</h3><p>I prioritize tasks, keep track of deadlines, and work efficiently to complete responsibilities on time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="workflow">
+  <div class="wrap">
+    <span class="kicker">My step-by-step workflow</span>
+    <h2>A workflow you can rely on.</h2>
+    <p class="lede">A clear, repeatable process that keeps every task on track and keeps you in the loop from start to finish.</p>
+    <div class="steps">
+      <div class="step"><small>01</small><h3>Discover</h3><p>I learn what you’re aiming for, how you work today, and where your time is going.</p></div>
+      <div class="step"><small>02</small><h3>Plan</h3><p>I sort tasks by priority and map out a realistic, easy-to-follow schedule.</p></div>
+      <div class="step"><small>03</small><h3>Execute</h3><p>I carry out each task with care and deliver it on time.</p></div>
+      <div class="step"><small>04</small><h3>Report</h3><p>You get regular updates, so you always know where things stand.</p></div>
+      <div class="step"><small>05</small><h3>Improve</h3><p>I look back at what worked and suggest simpler, faster ways to do it.</p></div>
+    </div>
+    <div class="goal">
+      <h3>My goal</h3>
+      <p>To provide reliable virtual assistance that helps businesses stay organized, save time, and focus on what matters most.</p>
+      <strong>Less hassle.<br>More progress.</strong>
+    </div>
+  </div>
+</section>
+
+<section id="samples">
+  <div class="wrap">
+    <span class="kicker">Sample works</span>
+    <h2>See my work, not just my words</h2>
+    <div class="mosaic">
+      <!-- To add a picture: put <img src="images/email.png" alt="Email organization sample"> inside the empty ph div -->
+      <article class="sample"><div class="ph" role="img" aria-label="Email organization sample"><img src="photos/inbox management.png" alt="Email organization sample"></div><h3>Email organization</h3><p>Organized email inboxes using labels, filters, and categories to make messages easier to manage and find.</p></article>
+      <article class="sample"><div class="ph" role="img" aria-label="Calendar management sample"><img src="photos/Calendar Management.png" alt="Calendar management sample"></div><h3>Calendar management</h3><p>Organized calendar schedules, appointments, and reminders to keep daily activities on track.</p></article>
+      <article class="sample"><div class="ph" role="img" aria-label="Spreadsheet sample"><img src="photos/Data Entry.png" alt="Spreadsheet sample"></div><h3>Spreadsheet</h3><p>Structured and maintained spreadsheets to keep information accurate, organized, and easy to access.</p></article>
+      <article class="sample"><div class="ph" role="img" aria-label="Task tracker sample"><img src="photos/Notion Task Manager.png" alt="Task tracker Sample"></div><h3>Task tracker</h3><p>Created a task tracker to monitor priorities, deadlines, and project progress efficiently.</p></article>
+      <article class="sample"><div class="ph" role="img" aria-label="Google Drive structure sample"><img src="photos/GDrive Management.png" alt="Google Drive structure sample"></div><h3>Google Drive structure</h3><p>Organized digital files and folders using a clear naming system for easy access and retrieval.</p></article>
+      <article class="sample"><div class="ph" role="img" aria-label="Canva graphics sample"><img src="photos/Brew & Bloom Café.png" alt="Canva graphics sample"></div><h3>Canva graphics</h3><p>Created professional and engaging graphics for promotional content, social media, and business communications.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="ready">
+  <div class="wrap split">
+    <div class="head"><span class="kicker">Why I’m ready</span><h2>Trained, practiced, and ready to start</h2><p class="lede">I may be new to the field, but I’m not new to the work. Here’s what prepares me to support you from day one.</p></div>
+    <div>
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" aria-controls="p1" id="t1">Trained</button>
+        <button role="tab" aria-selected="false" aria-controls="p2" id="t2">Practiced</button>
+        <button role="tab" aria-selected="false" aria-controls="p3" id="t3">Transferable experience</button>
+      </div>
+      <div class="panel" id="p1" role="tabpanel" aria-labelledby="t1"><p>I’ve invested in learning the skills and tools needed to provide reliable Virtual Assistant support.</p><ul><li>Virtual Assistant fundamentals</li><li>Administrative support</li><li>Google Workspace</li><li>Email &amp; calendar management</li><li>[Add other relevant training]</li></ul></div>
+      <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden><p>I’ve put my training into action through hands-on exercises, simulated projects, and the portfolio work you see here.</p><ul><li>Inbox organization</li><li>Calendar management</li><li>Data entry &amp; tracking</li><li>Social media content planning</li><li>SOP &amp; document creation</li><li>Online research</li></ul></div>
+      <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden><p>My previous experience has built strengths that I now bring to my work as a Virtual Assistant.</p><ul><li>Communication</li><li>Organization &amp; time management</li><li>Attention to detail</li><li>Problem solving</li><li>Adaptability</li><li>Client service mindset</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="kicker">FAQs</span>
+      <h2>Questions? I’ve got answers.</h2>
+      <details open><summary>How many hours are you available?</summary><p>I’m available [part-time / full-time] and can commit approximately 40 hours per week. Let’s talk about the schedule that works best for your needs.</p></details>
+      <details><summary>What tools and platforms are you familiar with?</summary><p>I’m comfortable using tools such as Google Workspace, Microsoft 360, Canva and AI tools. I’m also happy to learn new tools and systems as your business needs them.</p></details>
+      <details><summary>Can you keep my information confidential?</summary><p>Yes. I understand how important it is to protect client information, and I’ll handle your business data with professionalism and care.</p></details>
+      <details><summary>How do you communicate and give updates?</summary><p>I send regular updates through your preferred channel, such as email, chat, or project management tools, so you’re never left guessing.</p></details>
+      <details><summary>What can I expect when we start working together?</summary><p>You can expect clear communication, organized work, close attention to detail, and a real willingness to learn your processes and support your goals.</p></details>
+    </div>
+    <aside class="connect">
+      <small style="margin-top:0">Still have questions?</small>
+      <h3>Let’s connect!</h3>
+      <small>Email me</small>
+      <a href="mailto:daniella.bayongawan31@gmail.com">daniella.bayongawan31@gmail.com</a>
+      <small>Telegram / Viber</small>
+      <span class="phone">+63 9097476555</span>
+    </aside>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Thank you!</h2>
+    <h3>Let’s work together.</h3>
+    <p class="msg">Thank you for taking the time to explore my portfolio! I appreciate your interest in my work. If you’re looking for reliable virtual assistance to help keep your tasks organized and your day running smoothly, I’d love to connect with you.</p>
+    <div class="closing-links">
+      <a href="https://www.linkedin.com/in/daniella-b-18202423a/">LinkedIn</a><a href="https://www.facebook.com/done.niella/">Facebook</a><a href="https://www.onlinejobs.ph/jobseekers/info/1859686">OnlineJobs.ph</a>
+      <a href="mailto:daniella.bayongawan31@gmail.com">daniella.bayongawan31@gmail.com</a>
+    </div>
+    <p class="phone">Telegram / Viber: +63 9097476555</p>
+  </div>
+</section>
+</main>
+
+<script>
+document.querySelectorAll('.tabs button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.tabs button').forEach(function(x){
+      var on=x===b;x.setAttribute('aria-selected',on);
+      document.getElementById(x.getAttribute('aria-controls')).hidden=!on;
+    });
+  });
+});
+</script>
+</body>
+</html>
